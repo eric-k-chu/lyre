@@ -22,7 +22,7 @@ const theme = createTheme({
 
 export default function App(): ReactElement {
   return (
-    <MantineProvider theme={theme}>
+    <MantineProvider theme={theme} defaultColorScheme='dark'>
       <ClientLayout />
     </MantineProvider>
   )
