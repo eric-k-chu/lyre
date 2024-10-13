@@ -1,31 +1,39 @@
+import { Group, type GroupProps, UnstyledButton } from '@mantine/core'
 import { getCurrentWindow } from '@tauri-apps/api/window'
 import { CopyIcon, MinusIcon, SquareIcon, XIcon } from 'lucide-react'
 import { type ReactElement, useState } from 'react'
-import { Button } from '../ui/button'
 
 const app = getCurrentWindow()
 
-export function TitleBar(): ReactElement {
+export function TitleBar(props: GroupProps): ReactElement {
   const [isMaximized, setIsMaximized] = useState(false)
 
   return (
-    <header data-tauri-drag-region className='flex w-full flex-row-reverse'>
-      <Button variant='ghost' size='icon' onClick={() => app.close()}>
-        <XIcon size={16} />
-      </Button>
-      <Button
-        variant='ghost'
-        size='icon'
+    <Group {...props} h='100%' gap={0}>
+      <UnstyledButton
+        className='h-full rounded-none hover:bg-zinc-200'
+        onClick={() => app.minimize()}
+        px='md'
+      >
+        <MinusIcon size={14} />
+      </UnstyledButton>
+      <UnstyledButton
+        className='h-full rounded-none hover:bg-zinc-200'
         onClick={() => {
           app.toggleMaximize()
           setIsMaximized(!isMaximized)
         }}
+        px='md'
       >
-        {isMaximized ? <CopyIcon size={16} className='scale-x-[-1]' /> : <SquareIcon size={16} />}
-      </Button>
-      <Button variant='ghost' size='icon' onClick={() => app.minimize()}>
-        <MinusIcon size={16} />
-      </Button>
-    </header>
+        {isMaximized ? <CopyIcon className='scale-x-[-1]' size={12} /> : <SquareIcon size={12} />}
+      </UnstyledButton>
+      <UnstyledButton
+        className='h-full rounded-none hover:bg-destructive'
+        onClick={() => app.close()}
+        px='md'
+      >
+        <XIcon size={12} />
+      </UnstyledButton>
+    </Group>
   )
 }

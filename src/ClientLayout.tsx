@@ -1,12 +1,10 @@
-import { TitleBar } from '@/components/core'
+import { SideBar, TitleBar } from '@/components/core'
 import { Settings } from '@/settings'
-import { getCurrentWindow } from '@tauri-apps/api/window'
+import { AppShell, Group, Text } from '@mantine/core'
+import { useDisclosure } from '@mantine/hooks'
 import type { ReactElement } from 'react'
 import { Outlet, Route, Routes } from 'react-router-dom'
-import { SideBar } from './components/core/SideBar'
 import { Home } from './home'
-
-const app = getCurrentWindow()
 
 export function ClientLayout(): ReactElement {
   return (
@@ -20,13 +18,26 @@ export function ClientLayout(): ReactElement {
 }
 
 function ClientShell(): ReactElement {
+  const [opened, { toggle }] = useDisclosure()
+
   return (
-    <div className='flex items-center'>
-      <SideBar />
-      <main>
+    <AppShell
+      header={{ height: 30 }}
+      navbar={{ width: opened ? 200 : 52, breakpoint: 'xs' }}
+      padding='md'
+    >
+      <AppShell.Header>
+        <Group h='100%' pl='md' data-tauri-drag-region>
+          <Text size='xs'>ARIES</Text>
+          <TitleBar ml='auto' />
+        </Group>
+      </AppShell.Header>
+      <AppShell.Navbar py='md'>
+        <SideBar opened={opened} toggle={toggle} />
+      </AppShell.Navbar>
+      <AppShell.Main>
         <Outlet />
-      </main>
-      <TitleBar />
-    </div>
+      </AppShell.Main>
+    </AppShell>
   )
 }
