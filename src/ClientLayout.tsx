@@ -21,7 +21,7 @@ export function ClientLayout(): ReactElement {
 
 function ClientShell(): ReactElement {
   return (
-    <div className='flex h-screen items-center'>
+    <div className='flex items-center'>
       <SideBar />
       <main>
         <Outlet />
