@@ -28,7 +28,7 @@ function ClientShell(): ReactElement {
     >
       <AppShell.Header>
         <Group h='100%' pl='md' data-tauri-drag-region>
-          <Text size='xs'>ARIES</Text>
+          <Text size='xs'>Hermes</Text>
           <TitleBar ml='auto' />
         </Group>
       </AppShell.Header>
