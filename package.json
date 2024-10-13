@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "tauri": "tauri",
     "ui:add": "bunx shadcn@latest add",
-    "format": "biome format --write"
+    "format": "bunx biome format --write ./src"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
