@@ -4,18 +4,19 @@
   "version": "0.1.0",
   "identifier": "com.aries.app",
   "build": {
-    "beforeDevCommand": "pnpm dev",
+    "beforeDevCommand": "bun dev",
     "devUrl": "http://localhost:1420",
-    "beforeBuildCommand": "pnpm build",
+    "beforeBuildCommand": "bun build",
     "frontendDist": "../dist"
   },
   "app": {
     "windows": [
       {
-        "title": "aries",
+        "title": "Aries",
         "width": 800,
-        "height": 600
-        
+        "height": 600,
+        "decorations": false,
+        "resizable": true
       }
     ],
     "security": {
