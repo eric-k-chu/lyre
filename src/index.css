@@ -12,5 +12,19 @@
 
 /* For dark mode */
 :root[data-mantine-color-scheme="dark"] {
-  --mantine-color-body: #282827 !important;
+  --mantine-color-body: #19192d !important;
+}
+
+
+
+@layer base {
+  :root {
+    --primary: 13 88% 58%;
+    --secondary: 198 39% 56%;
+    --destructive: 0 84.2% 60.2%;
+    
+
+  }
+
+
 }

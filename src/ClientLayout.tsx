@@ -1,6 +1,6 @@
 import { SideBar, TitleBar } from '@/components/core'
 import { Settings } from '@/settings'
-import { AppShell, Group, Text } from '@mantine/core'
+import { AppShell } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import type { ReactElement } from 'react'
 import { Outlet, Route, Routes } from 'react-router-dom'
@@ -27,10 +27,7 @@ function ClientShell(): ReactElement {
       padding='md'
     >
       <AppShell.Header>
-        <Group h='100%' pl='md' data-tauri-drag-region>
-          <Text size='xs'>Hermes</Text>
-          <TitleBar ml='auto' />
-        </Group>
+        <TitleBar />
       </AppShell.Header>
       <AppShell.Navbar py='md'>
         <SideBar opened={opened} toggle={toggle} />

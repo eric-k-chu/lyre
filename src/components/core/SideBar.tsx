@@ -1,8 +1,8 @@
 import { cn } from '@/lib/utils'
-import { Group, Stack, Text, UnstyledButton } from '@mantine/core'
+import { Group, type GroupProps, Stack, UnstyledButton } from '@mantine/core'
 import { ArrowLeftFromLineIcon, HomeIcon, type LucideProps, SettingsIcon } from 'lucide-react'
 import type { ForwardRefExoticComponent, ReactElement, RefAttributes } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, type LinkProps, useLocation } from 'react-router-dom'
 
 type Props = {
   opened: boolean
@@ -13,14 +13,12 @@ export function SideBar({ opened, toggle }: Props): ReactElement {
   const { pathname } = useLocation()
   return (
     <Stack gap='md' h='100%' align='center'>
-      <Group
-        justify={opened ? 'flex-end' : 'center'}
-        w='100%'
-        className='group relative'
-        px={opened ? 'md' : 0}
-      >
+      <Group justify={opened ? 'flex-end' : 'center'} w='100%' px={opened ? 'md' : 0}>
         <UnstyledButton onClick={() => toggle()}>
-          <ArrowLeftFromLineIcon className={opened ? 'scale-x-[1]' : 'scale-x-[-1]'} size={20} />
+          <ArrowLeftFromLineIcon
+            className={cn('hover:stroke-secondary', opened ? 'scale-x-[1]' : 'scale-x-[-1]')}
+            size={20}
+          />
         </UnstyledButton>
       </Group>
       <NavLink currentPath={pathname} icon={HomeIcon} label='Home' opened={opened} to='/' />
@@ -54,23 +52,34 @@ function NavLink({
   currentPath,
 }: NavLinkProps): ReactElement {
   return (
-    <Group
+    <UnstyledButton
       justify={opened ? 'flex-start' : 'center'}
       px={opened ? 'md' : 0}
       w='100%'
       mt={bottom ? 'auto' : 0}
-      className='group relative'
+      className='group'
+      component={LinkGroup}
+      to={to}
     >
-      <Link to={to}>
-        <Icon className='transition-colors group-hover:stroke-[#172F44]' size={20} />
-        <Text hidden={!opened}>{label}</Text>
-      </Link>
-      <div
-        className={cn(
-          'absolute right-0 h-full w-1 rounded-l-lg bg-[#102130] transition-opacity',
-          currentPath.startsWith(to) ? 'opacity-100' : 'opacity-0'
-        )}
+      <Icon
+        size={20}
+        className={currentPath === to ? 'stroke-primary' : 'group-hover:stroke-secondary'}
       />
-    </Group>
+      <p
+        className={cn(
+          'text-sm',
+          !opened ? 'hidden' : 'block',
+          currentPath === to ? 'text-primary' : 'group-hover:text-secondary'
+        )}
+      >
+        {label}
+      </p>
+    </UnstyledButton>
   )
+}
+
+type LinkGroupProps = LinkProps & GroupProps
+
+function LinkGroup(props: LinkGroupProps): ReactElement {
+  return <Group component={Link} {...props} />
 }

@@ -4,25 +4,26 @@ import { ClientLayout } from './ClientLayout'
 
 const theme = createTheme({
   colors: {
-    blue: [
-      '#a2acb4',
-      '#8b97a2',
-      '#74828f',
-      '#5d6d7c',
-      '#455969',
-      '#2e4457',
-      '#172F44',
-      '#152a3d',
-      '#122636',
-      '#102130',
+    orange: [
+      '#ffede5',
+      '#ffdacf',
+      '#fbb3a0',
+      '#f78a6d',
+      '#f36742',
+      '#f15126',
+      '#f14517',
+      '#d6360b',
+      '#c02e06',
+      '#a82301',
     ],
   },
   fontFamily: 'Sora, sans-serif',
+  primaryColor: 'orange',
 })
 
 export default function App(): ReactElement {
   return (
-    <MantineProvider theme={theme} defaultColorScheme='dark'>
+    <MantineProvider theme={theme}>
       <ClientLayout />
     </MantineProvider>
   )
