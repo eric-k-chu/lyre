@@ -1,5 +1,11 @@
 {
-	"extends": "@lyre/typescript-config/base.json",
-	"include": ["."],
-	"exclude": ["node_modules"]
+  "extends": "@lyre/typescript-config/base.json",
+  "include": ["."],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
 }

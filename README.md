@@ -19,7 +19,6 @@ This Turborepo includes the following packages and apps:
 - `docs`: a vanilla [vite](https://vitejs.dev) ts app
 - `web`: another vanilla [vite](https://vitejs.dev) ts app
 - `@lyre/ui`: a stub component & utility library shared by both `web` and `docs` applications
-- `@lyre/eslint-config`: shared `eslint` configurations
 - `@lyre/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
 Each package and app is 100% [TypeScript](https://www.typescriptlang.org/).
