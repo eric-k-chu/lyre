@@ -33,6 +33,9 @@
   "linter": {
     "enabled": true,
     "rules": {
+      "correctness": {
+        "useExhaustiveDependencies": "off"
+      },
       "nursery": {
         "useSortedClasses": {
           "fix": "safe",

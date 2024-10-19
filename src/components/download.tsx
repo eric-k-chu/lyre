@@ -9,7 +9,7 @@ export default function YouTubeDownloader() {
 
   React.useEffect(() => {
     const unlisten = listen('download_progress', (event) => {
-      setProgress(event.payload)
+      setProgress(event.payload as string)
     })
 
     return () => {
