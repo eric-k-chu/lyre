@@ -1,8 +1,8 @@
-import { Header } from "@repo/ui/header";
+import { Header } from "@lyre/ui/header";
 import "./style.css";
+import { Counter } from "@lyre/ui/counter";
+import { setupCounter } from "@lyre/ui/setup-counter";
 import typescriptLogo from "/typescript.svg";
-import { Counter } from "@repo/ui/counter";
-import { setupCounter } from "@repo/ui/setup-counter";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>

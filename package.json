@@ -1,20 +1,14 @@
 {
-  "private": true,
-  "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
-  },
-  "devDependencies": {
-    "eslint": "^8.57.0",
-    "prettier": "^3.2.5",
-    "turbo": "^2.2.1"
-  },
-  "name": "with-vite",
-  "packageManager": "bun@1.1.31",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+	"private": true,
+	"scripts": {
+		"build": "turbo build",
+		"dev": "turbo dev"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"turbo": "^2.2.1"
+	},
+	"name": "with-vite",
+	"packageManager": "bun@1.1.31",
+	"workspaces": ["apps/*", "packages/*"]
 }
