@@ -1,9 +1,9 @@
-import { SideBar, TitleBar } from '@/components/core'
 import { Settings } from '@/settings'
-import { AppShell } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import type { ReactElement } from 'react'
 import { Outlet, Route, Routes } from 'react-router-dom'
+import { AppSidebar } from './components/app-sidebar'
+import { SidebarProvider } from './components/ui/sidebar'
 import { Home } from './home'
 
 export function ClientLayout(): ReactElement {
@@ -21,20 +21,9 @@ function ClientShell(): ReactElement {
   const [opened, { toggle }] = useDisclosure()
 
   return (
-    <AppShell
-      header={{ height: 30 }}
-      navbar={{ width: opened ? 200 : 52, breakpoint: 'xs' }}
-      padding='md'
-    >
-      <AppShell.Header>
-        <TitleBar />
-      </AppShell.Header>
-      <AppShell.Navbar py='md'>
-        <SideBar opened={opened} toggle={toggle} />
-      </AppShell.Navbar>
-      <AppShell.Main>
-        <Outlet />
-      </AppShell.Main>
-    </AppShell>
+    <SidebarProvider>
+      <AppSidebar />
+      <Outlet />
+    </SidebarProvider>
   )
 }
