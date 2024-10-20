@@ -1,5 +1,5 @@
 {
-  "name": "lyre",
+  "name": "@lyre/web",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -27,7 +27,6 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.3",
     "@types/node": "^22.7.5",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
