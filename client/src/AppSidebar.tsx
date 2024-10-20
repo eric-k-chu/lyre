@@ -1,4 +1,10 @@
 import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown'
+import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
@@ -7,7 +13,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
-import { useTheme } from '@/hooks/useTheme'
+import { useTheme } from '@/hooks/theme'
 import {
   Component1Icon,
   CropIcon,
@@ -18,12 +24,6 @@ import {
 } from '@radix-ui/react-icons'
 import type { ReactElement } from 'react'
 import { Button } from './components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from './components/ui/dropdown-menu'
 
 // Menu items.
 const items = [
