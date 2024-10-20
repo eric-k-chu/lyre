@@ -3,12 +3,10 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "dev": "turbo dev"
   },
   "devDependencies": {
-    "prettier": "^3.2.5",
+    "@biomejs/biome": "^1.9.4",
     "turbo": "^2.2.1",
     "typescript": "^5.4.5"
   },
@@ -16,8 +14,5 @@
     "node": ">=18"
   },
   "packageManager": "bun@1.1.30",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  "workspaces": ["apps/*", "packages/*"]
 }
