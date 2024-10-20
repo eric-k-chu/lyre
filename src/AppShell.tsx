@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import { AppSidebar } from './components/AppSidebar'
+import { AppSidebar } from './AppSidebar'
 import {
   Breadcrumb,
   BreadcrumbItem,

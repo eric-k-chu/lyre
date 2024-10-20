@@ -6,9 +6,9 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { useIsMobile } from '@/hooks/useMobile'
 import { cn } from '@/lib/utils'
+import { PinLeftIcon } from '@radix-ui/react-icons'
 import { Slot } from '@radix-ui/react-slot'
 import { type VariantProps, cva } from 'class-variance-authority'
-import { PanelLeft } from 'lucide-react'
 import * as React from 'react'
 
 const SIDEBAR_COOKIE_NAME = 'sidebar:state'
@@ -264,7 +264,7 @@ const SidebarTrigger = React.forwardRef<
       }}
       {...props}
     >
-      <PanelLeft />
+      <PinLeftIcon />
       <span className='sr-only'>Toggle Sidebar</span>
     </Button>
   )
