@@ -34,12 +34,12 @@ const items = [
   },
   {
     title: 'Download',
-    url: '/Download',
+    url: '/download',
     icon: DownloadIcon,
   },
   {
-    title: 'Clipper',
-    url: '#',
+    title: 'Markup',
+    url: '/markup',
     icon: CropIcon,
   },
 ]
