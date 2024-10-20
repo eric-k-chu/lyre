@@ -6,7 +6,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { useIsMobile } from '@/hooks/useMobile'
 import { cn } from '@/lib/utils'
-import { PinLeftIcon } from '@radix-ui/react-icons'
+import { HamburgerMenuIcon } from '@radix-ui/react-icons'
 import { Slot } from '@radix-ui/react-slot'
 import { type VariantProps, cva } from 'class-variance-authority'
 import * as React from 'react'
@@ -264,7 +264,7 @@ const SidebarTrigger = React.forwardRef<
       }}
       {...props}
     >
-      <PinLeftIcon />
+      <HamburgerMenuIcon />
       <span className='sr-only'>Toggle Sidebar</span>
     </Button>
   )

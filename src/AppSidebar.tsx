@@ -8,7 +8,14 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
 import { useTheme } from '@/hooks/useTheme'
-import { CropIcon, DownloadIcon, HomeIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons'
+import {
+  Component1Icon,
+  CropIcon,
+  DownloadIcon,
+  HomeIcon,
+  MoonIcon,
+  SunIcon,
+} from '@radix-ui/react-icons'
 import type { ReactElement } from 'react'
 import { Button } from './components/ui/button'
 import {
@@ -40,8 +47,9 @@ const items = [
 export function AppSidebar(): ReactElement {
   return (
     <Sidebar>
-      <SidebarHeader>
-        <h1>Lyre</h1>
+      <SidebarHeader className='flex flex-row items-center gap-x-2'>
+        <Component1Icon />
+        <strong>Lyre</strong>
       </SidebarHeader>
       <SidebarContent>
         <SidebarMenu>
