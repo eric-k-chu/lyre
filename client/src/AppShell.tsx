@@ -1,15 +1,15 @@
-import type { ReactElement } from 'react'
-import { Outlet, useLocation } from 'react-router-dom'
-import { AppSidebar } from './AppSidebar'
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-} from './components/ui/breadcrumb'
-import { Separator } from './components/ui/separator'
-import { SidebarInset, SidebarProvider, SidebarTrigger } from './components/ui/sidebar'
-import { ThemeProvider } from './hooks/useTheme'
+} from '@/components/ui/breadcrumb'
+import { Separator } from '@/components/ui/separator'
+import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
+import { ThemeProvider } from '@/hooks/theme'
+import type { ReactElement } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
+import { AppSidebar } from './AppSidebar'
 
 export function AppShell(): ReactElement {
   const { pathname } = useLocation()
