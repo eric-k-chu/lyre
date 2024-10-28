@@ -1,7 +1,0 @@
-{
-  "extends": "@lyre/typescript-config/base.json",
-  "compilerOptions": {
-    "outDir": "build",
-    "types": ["bun-types"]
-  }
-}
