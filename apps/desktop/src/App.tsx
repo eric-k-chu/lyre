@@ -1,15 +1,19 @@
 import { greet } from './api'
 
 function App() {
-  async function handleClick(): Promise<void> {
-    const msg = await greet({ name: 'world' })
-    alert(msg)
+  const handleGreet = async (): Promise<void> => {
+    const msg = await greet({ name: 'World' })
+    if (msg.error !== undefined) {
+      alert(msg.error)
+      return
+    }
+    alert(msg.data)
   }
 
   return (
     <main>
       <h1>Hello</h1>
-      <button onClick={handleClick} type='button'>
+      <button type='button' onClick={handleGreet}>
         Greet
       </button>
     </main>

@@ -1,7 +1,9 @@
-# Tauri + React + Typescript
+# Lyre
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+## Frontend
 
-## Recommended IDE Setup
+React
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+## Backend
+
+Tauri (only used for invoking cli, database calls will occur in the frontend)
