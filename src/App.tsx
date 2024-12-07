@@ -1,5 +1,6 @@
 import { Command } from '@tauri-apps/plugin-shell'
 import { type ReactElement, useState } from 'react'
+import { Button, ScrollArea } from './components/ui'
 
 function App(): ReactElement {
   const [logs, setLogs] = useState<string[]>([])
@@ -24,13 +25,12 @@ function App(): ReactElement {
   }
 
   return (
-    <main className='flex min-h-screen flex-col items-center justify-center gap-4'>
-      <h1>Hello</h1>
+    <main className='flex min-h-screen flex-col items-center justify-center gap-4 p-8'>
       <div className='flex gap-4'>
-        <button type='button' onClick={downloadYtVideo}>
+        <Button type='button' onClick={downloadYtVideo}>
           Download
-        </button>
-        <button
+        </Button>
+        <Button
           disabled={logs.length === 0}
           type='button'
           onClick={() => {
@@ -38,9 +38,11 @@ function App(): ReactElement {
           }}
         >
           Clear logs
-        </button>
+        </Button>
       </div>
-      <div className='h-96 overscroll-auto'>
+      <ScrollArea
+        className={`h-72 border border-border ${logs.length === 0 ? 'invisible' : 'block'}`}
+      >
         {logs.map((log, index) => (
           <p key={index}>{log}</p>
         ))}
@@ -50,7 +52,7 @@ function App(): ReactElement {
             node?.scrollIntoView({ behavior: 'smooth' })
           }}
         />
-      </div>
+      </ScrollArea>
     </main>
   )
 }
