@@ -10,7 +10,7 @@ type LocalStoreState<T extends string> = {
   set: (value: T) => void
 }
 
-export function useLocalStorage<T extends string>(input: LocalStoreInput<T>): LocalStoreState<T> {
+export function useLocalStore<T extends string>(input: LocalStoreInput<T>): LocalStoreState<T> {
   const item = useSyncExternalStore(subscribe, () =>
     getItemFromLocalStorage(input.key, input.fallback)
   )

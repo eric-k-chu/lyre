@@ -1,4 +1,4 @@
-import { ThemeProviderContext, type ThemeProviderProps, useLocalStorage } from '@/lib'
+import { ThemeProviderContext, type ThemeProviderProps, useLocalStore } from '@/lib'
 import { type ReactElement, useEffect } from 'react'
 
 export function ThemeProvider({
@@ -6,7 +6,7 @@ export function ThemeProvider({
   defaultTheme = 'system',
   storageKey = 'lyre-ui-theme',
 }: ThemeProviderProps): ReactElement {
-  const { item: theme, set } = useLocalStorage({ key: storageKey, fallback: defaultTheme })
+  const { item: theme, set } = useLocalStore({ key: storageKey, fallback: defaultTheme })
 
   useEffect(() => {
     const root = window.document.documentElement
