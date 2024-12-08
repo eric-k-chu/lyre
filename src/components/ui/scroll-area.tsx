@@ -2,18 +2,11 @@ import { cn } from '@/lib'
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area'
 import type { ComponentPropsWithRef, ReactElement } from 'react'
 
-function ScrollArea({
-  className,
-  children,
-  ref,
-  ...props
-}: ComponentPropsWithRef<typeof ScrollAreaPrimitive.Root>): ReactElement {
+type ScrollAreaProps = ComponentPropsWithRef<typeof ScrollAreaPrimitive.Root>
+
+function ScrollArea({ className, children, ...props }: ScrollAreaProps): ReactElement {
   return (
-    <ScrollAreaPrimitive.Root
-      ref={ref}
-      className={cn('relative overflow-hidden', className)}
-      {...props}
-    >
+    <ScrollAreaPrimitive.Root className={cn('relative overflow-hidden', className)} {...props}>
       <ScrollAreaPrimitive.Viewport className='h-full w-full rounded-[inherit]'>
         {children}
       </ScrollAreaPrimitive.Viewport>
@@ -23,15 +16,15 @@ function ScrollArea({
   )
 }
 
+type ScrollBarProps = ComponentPropsWithRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>
+
 function ScrollBar({
   className,
   orientation = 'vertical',
-  ref,
   ...props
-}: ComponentPropsWithRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>): ReactElement {
+}: ScrollBarProps): ReactElement {
   return (
     <ScrollAreaPrimitive.ScrollAreaScrollbar
-      ref={ref}
       orientation={orientation}
       className={cn(
         'flex touch-none select-none transition-colors',
