@@ -7,7 +7,7 @@ const labelVariants = cva(
   'font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
 )
 
-type LabelProps = ComponentPropsWithRef<typeof LabelPrimitive.Root> &
+export type LabelProps = ComponentPropsWithRef<typeof LabelPrimitive.Root> &
   VariantProps<typeof labelVariants>
 
 function Label({ className, ...props }: LabelProps): ReactElement {

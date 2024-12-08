@@ -5,7 +5,6 @@ export {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from './dropdown-menu'
-export { Input } from './input'
-export { Label } from './label'
+export { Input, type InputProps } from './input'
+export { Label, type LabelProps } from './label'
 export { ScrollArea, ScrollBar } from './scroll-area'
-export { Tabs, TabsContent, TabsList, TabsTrigger } from './tabs'
