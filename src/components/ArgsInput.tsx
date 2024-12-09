@@ -1,53 +1,44 @@
 import type { ReactElement } from 'react'
-import { Input, type InputProps, Label, type LabelProps } from './ui'
-
-export function ArgsInput(): ReactElement {
-  return (
-    <section className='h-8 w-full space-y-4'>
-      <FormInput
-        label={{
-          htmlFor: 'url',
-          children: 'URL',
-        }}
-        input={{
-          id: 'url',
-          name: 'url',
-          type: 'url',
-          placeholder: 'https://youtube.com/@Google',
-        }}
-      />
-      <FormInput
-        label={{
-          htmlFor: 'output',
-          children: 'Output',
-        }}
-        input={{
-          id: 'output',
-          name: 'output',
-          type: 'text',
-          placeholder: 'output.mp4',
-        }}
-      />
-    </section>
-  )
-}
+import { Input, Label } from './ui'
 
 type Props = {
-  label: LabelProps
-  input: InputProps
+  setOutput: () => void
+  setUrl: (url: string) => void
+  url: string
+  output: string
 }
 
-function FormInput({ label, input }: Props): ReactElement {
+export function ArgsInput({ url, setUrl, output, setOutput }: Props): ReactElement {
   return (
-    <div className='flex size-full items-center'>
-      <Label
-        {...label}
-        className='flex h-full w-16 place-content-center items-center justify-center rounded-l-sm border border-primary border-r bg-primary px-2 text-primary-foreground text-xs'
-      />
-      <Input
-        {...input}
-        className='size-full rounded-r-sm rounded-l-none border border-border border-l-none py-0 text-xs'
-      />
-    </div>
+    <section className='h-8 w-full space-y-4'>
+      <div className='flex size-full items-center'>
+        <Label
+          htmlFor='url'
+          className='flex h-full w-16 items-center justify-center rounded-l-sm border border-primary border-r bg-primary px-2 text-primary-foreground text-xs'
+        >
+          URL
+        </Label>
+        <Input
+          name='url'
+          type='url'
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          placeholder='https://youtube.com/@Google'
+          className='h-full rounded-l-none text-xs'
+        />
+      </div>
+      <div className='flex size-full items-center'>
+        <Label className='flex h-full w-16 items-center justify-center rounded-l-sm border border-primary border-r bg-primary px-2 text-primary-foreground text-xs'>
+          Output
+        </Label>
+        <button
+          type='button'
+          onClick={setOutput}
+          className='h-full w-full rounded-r-sm rounded-l-none border border-border bg-transparent px-3 text-left text-muted-foreground text-xs'
+        >
+          {output || 'Select Output'}
+        </button>
+      </div>
+    </section>
   )
 }
