@@ -1,11 +1,6 @@
-import { type PropsWithChildren, createContext, useContext } from 'react'
+import { createContext, useContext } from 'react'
 
-type Theme = 'dark' | 'light' | 'system'
-
-export type ThemeProviderProps = PropsWithChildren<{
-  defaultTheme?: Theme
-  storageKey?: string
-}>
+export type Theme = 'dark' | 'light' | 'system'
 
 type ThemeProviderState = {
   theme: Theme

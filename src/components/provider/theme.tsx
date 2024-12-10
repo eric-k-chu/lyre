@@ -1,5 +1,10 @@
-import { ThemeProviderContext, type ThemeProviderProps, useLocalStore } from '@/lib'
-import { type ReactElement, useEffect } from 'react'
+import { type Theme, ThemeProviderContext, useLocalStore } from '@/hooks'
+import { type PropsWithChildren, type ReactElement, useEffect } from 'react'
+
+type ThemeProviderProps = PropsWithChildren<{
+  defaultTheme?: Theme
+  storageKey?: string
+}>
 
 export function ThemeProvider({
   children,

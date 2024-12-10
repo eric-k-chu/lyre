@@ -4,7 +4,7 @@ import type { ComponentPropsWithRef, ReactElement } from 'react'
 
 type ScrollAreaProps = ComponentPropsWithRef<typeof ScrollAreaPrimitive.Root>
 
-function ScrollArea({ className, children, ...props }: ScrollAreaProps): ReactElement {
+export function ScrollArea({ className, children, ...props }: ScrollAreaProps): ReactElement {
   return (
     <ScrollAreaPrimitive.Root className={cn('relative overflow-hidden', className)} {...props}>
       <ScrollAreaPrimitive.Viewport className='h-full w-full rounded-[inherit]'>
@@ -18,7 +18,7 @@ function ScrollArea({ className, children, ...props }: ScrollAreaProps): ReactEl
 
 type ScrollBarProps = ComponentPropsWithRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>
 
-function ScrollBar({
+export function ScrollBar({
   className,
   orientation = 'vertical',
   ...props
@@ -38,5 +38,3 @@ function ScrollBar({
     </ScrollAreaPrimitive.ScrollAreaScrollbar>
   )
 }
-
-export { ScrollArea, ScrollBar }

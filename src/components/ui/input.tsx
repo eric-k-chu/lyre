@@ -3,7 +3,7 @@ import type { ComponentProps, ReactElement } from 'react'
 
 export type InputProps = ComponentProps<'input'>
 
-function Input({ className, type, ...props }: InputProps): ReactElement {
+export function Input({ className, type, ...props }: InputProps): ReactElement {
   return (
     <input
       type={type}
@@ -15,5 +15,3 @@ function Input({ className, type, ...props }: InputProps): ReactElement {
     />
   )
 }
-
-export { Input }

@@ -5,7 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui'
-import { useTheme } from '@/lib'
+import { useTheme } from '@/hooks'
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons'
 import type { ReactElement } from 'react'
 

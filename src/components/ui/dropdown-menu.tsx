@@ -3,17 +3,17 @@ import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import { CheckIcon, ChevronRightIcon, CircleIcon } from '@radix-ui/react-icons'
 import type { ComponentPropsWithRef, HTMLAttributes, ReactElement } from 'react'
 
-const DropdownMenu = DropdownMenuPrimitive.Root
+export const DropdownMenu = DropdownMenuPrimitive.Root
 
-const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger
+export const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger
 
-const DropdownMenuGroup = DropdownMenuPrimitive.Group
+export const DropdownMenuGroup = DropdownMenuPrimitive.Group
 
-const DropdownMenuPortal = DropdownMenuPrimitive.Portal
+export const DropdownMenuPortal = DropdownMenuPrimitive.Portal
 
-const DropdownMenuSub = DropdownMenuPrimitive.Sub
+export const DropdownMenuSub = DropdownMenuPrimitive.Sub
 
-const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup
+export const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup
 
 type DropdownMenuSubTriggerProps = ComponentPropsWithRef<
   typeof DropdownMenuPrimitive.SubTrigger
@@ -21,7 +21,7 @@ type DropdownMenuSubTriggerProps = ComponentPropsWithRef<
   inset?: boolean
 }
 
-function DropdownMenuSubTrigger({
+export function DropdownMenuSubTrigger({
   className,
   inset,
   children,
@@ -44,7 +44,7 @@ function DropdownMenuSubTrigger({
 
 type DropdownMenuSubContentProps = ComponentPropsWithRef<typeof DropdownMenuPrimitive.SubContent>
 
-function DropdownMenuSubContent({
+export function DropdownMenuSubContent({
   className,
   ...props
 }: DropdownMenuSubContentProps): ReactElement {
@@ -61,7 +61,7 @@ function DropdownMenuSubContent({
 
 type DropdownMenuContentProps = ComponentPropsWithRef<typeof DropdownMenuPrimitive.Content>
 
-function DropdownMenuContent({
+export function DropdownMenuContent({
   className,
   sideOffset = 4,
   ...props
@@ -85,7 +85,11 @@ type DropdownMenuItemProps = ComponentPropsWithRef<typeof DropdownMenuPrimitive.
   inset?: boolean
 }
 
-function DropdownMenuItem({ className, inset, ...props }: DropdownMenuItemProps): ReactElement {
+export function DropdownMenuItem({
+  className,
+  inset,
+  ...props
+}: DropdownMenuItemProps): ReactElement {
   return (
     <DropdownMenuPrimitive.Item
       className={cn(
@@ -102,7 +106,7 @@ type DropdownMenuCheckboxItemProps = ComponentPropsWithRef<
   typeof DropdownMenuPrimitive.CheckboxItem
 >
 
-function DropdownMenuCheckboxItem({
+export function DropdownMenuCheckboxItem({
   className,
   children,
   checked,
@@ -129,7 +133,7 @@ function DropdownMenuCheckboxItem({
 
 type DropdownMenuRadioItemProps = ComponentPropsWithRef<typeof DropdownMenuPrimitive.RadioItem>
 
-function DropdownMenuRadioItem({
+export function DropdownMenuRadioItem({
   className,
   children,
   ...props
@@ -156,7 +160,11 @@ type DropdownMenuLabelProps = ComponentPropsWithRef<typeof DropdownMenuPrimitive
   inset?: boolean
 }
 
-function DropdownMenuLabel({ className, inset, ...props }: DropdownMenuLabelProps): ReactElement {
+export function DropdownMenuLabel({
+  className,
+  inset,
+  ...props
+}: DropdownMenuLabelProps): ReactElement {
   return (
     <DropdownMenuPrimitive.Label
       className={cn('px-2 py-1.5 font-semibold text-sm', inset && 'pl-8', className)}
@@ -167,7 +175,10 @@ function DropdownMenuLabel({ className, inset, ...props }: DropdownMenuLabelProp
 
 type DropdownMenuSeparatorProps = ComponentPropsWithRef<typeof DropdownMenuPrimitive.Separator>
 
-function DropdownMenuSeparator({ className, ...props }: DropdownMenuSeparatorProps): ReactElement {
+export function DropdownMenuSeparator({
+  className,
+  ...props
+}: DropdownMenuSeparatorProps): ReactElement {
   return (
     <DropdownMenuPrimitive.Separator
       className={cn('-mx-1 my-1 h-px bg-muted', className)}
@@ -178,24 +189,9 @@ function DropdownMenuSeparator({ className, ...props }: DropdownMenuSeparatorPro
 
 type DropdownMenuShortcutProps = HTMLAttributes<HTMLSpanElement>
 
-function DropdownMenuShortcut({ className, ...props }: DropdownMenuShortcutProps): ReactElement {
+export function DropdownMenuShortcut({
+  className,
+  ...props
+}: DropdownMenuShortcutProps): ReactElement {
   return <span className={cn('ml-auto text-xs tracking-widest opacity-60', className)} {...props} />
-}
-
-export {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
 }
