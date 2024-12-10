@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import { Input, Label } from './ui'
+import { Button, Input, Label } from './ui'
 
 type Props = {
   setOutput: () => void
@@ -13,34 +13,47 @@ export function ArgsInput({ url, setUrl, output, setOutput, isDownloading }: Pro
   return (
     <section className='h-8 w-full space-y-4'>
       <div className='flex size-full items-center'>
-        <Label
-          htmlFor='url'
-          className='flex h-full w-20 items-center justify-center rounded-l-sm border border-primary border-r bg-primary px-2 text-foreground text-xs'
+        <Button
+          asChild
+          className='h-full w-20 rounded-r-none px-0 hover:bg-secondary'
+          variant='secondary'
         >
-          URL
-        </Label>
-        <Input
-          disabled={isDownloading}
-          name='url'
-          type='url'
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-          placeholder='https://youtube.com/@Google'
-          className='h-full rounded-l-none text-xs'
-        />
+          <Label htmlFor='url'>URL</Label>
+        </Button>
+        <Button
+          asChild
+          variant='outline'
+          className='size-full justify-start rounded-l-none text-muted-foreground text-xs shadow-none hover:bg-transparent'
+        >
+          <Input
+            disabled={isDownloading}
+            autoComplete='off'
+            id='url'
+            type='url'
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            placeholder='https://youtube.com/@Google'
+          />
+        </Button>
       </div>
       <div className='flex size-full items-center'>
-        <Label className='flex h-full w-20 items-center justify-center rounded-l-sm border border-primary border-r bg-primary px-2 text-foreground text-xs'>
-          Output
-        </Label>
-        <button
+        <Button
+          asChild
+          className='h-full w-20 rounded-r-none px-0 hover:bg-secondary'
+          variant='secondary'
+        >
+          <Label htmlFor='output'>Output</Label>
+        </Button>
+        <Button
+          id='output'
           disabled={isDownloading}
+          variant='outline'
           type='button'
           onClick={setOutput}
-          className='h-full w-full rounded-r-sm rounded-l-none border border-border bg-transparent px-3 text-left text-muted-foreground text-xs'
+          className='size-full justify-start rounded-l-none text-muted-foreground text-xs shadow-none hover:bg-transparent'
         >
           {output || 'Select Output'}
-        </button>
+        </Button>
       </div>
     </section>
   )
