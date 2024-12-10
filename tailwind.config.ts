@@ -12,15 +12,16 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        crust: 'hsl(var(--crust))',
         flamingo: 'hsl(var(--ctp-flamingo))',
-        background: 'hsl(var(--background))',
+        background: 'hsl(var(--ctp-base))',
         foreground: 'hsl(var(--foreground))',
         card: {
-          DEFAULT: 'hsl(var(--card))',
+          DEFAULT: 'hsl(var(--ctp-base))',
           foreground: 'hsl(var(--card-foreground))',
         },
         popover: {
-          DEFAULT: 'hsl(var(--popover))',
+          DEFAULT: 'hsl(var(--ctp-base))',
           foreground: 'hsl(var(--popover-foreground))',
         },
         primary: {
@@ -52,6 +53,16 @@ const config: Config = {
           '3': 'hsl(var(--chart-3))',
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
+        },
+        sidebar: {
+          DEFAULT: 'hsl(var(--ctp-crust))',
+          foreground: 'hsl(var(--text-foreground))',
+          primary: 'hsl(var(--ctp-crust))',
+          'primary-foreground': 'hsl(var(--primary-foreground))',
+          accent: 'hsl(var(--accent))',
+          'accent-foreground': 'hsl(var(--accent-foreground))',
+          border: 'hsl(var(---ctp-overlay-2))',
+          ring: 'hsl(var(---ctp-overlay-2))',
         },
       },
     },

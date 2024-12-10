@@ -15,7 +15,7 @@ export function ArgsInput({ url, setUrl, output, setOutput, isDownloading }: Pro
       <div className='flex size-full items-center'>
         <Label
           htmlFor='url'
-          className='flex h-full w-16 items-center justify-center rounded-l-sm border border-primary border-r bg-primary px-2 text-primary-foreground text-xs'
+          className='flex h-full w-20 items-center justify-center rounded-l-sm border border-primary border-r bg-primary px-2 text-foreground text-xs'
         >
           URL
         </Label>
@@ -30,7 +30,7 @@ export function ArgsInput({ url, setUrl, output, setOutput, isDownloading }: Pro
         />
       </div>
       <div className='flex size-full items-center'>
-        <Label className='flex h-full w-16 items-center justify-center rounded-l-sm border border-primary border-r bg-primary px-2 text-primary-foreground text-xs'>
+        <Label className='flex h-full w-20 items-center justify-center rounded-l-sm border border-primary border-r bg-primary px-2 text-foreground text-xs'>
           Output
         </Label>
         <button
