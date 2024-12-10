@@ -17,7 +17,7 @@ export function App(): ReactElement {
       >
         <div className='flex h-20 gap-4'>
           <ArgsInput {...rest} />
-          <Button type='submit' className='h-full'>
+          <Button type='submit' className='h-full' disabled={rest.isDownloading}>
             Download
           </Button>
         </div>

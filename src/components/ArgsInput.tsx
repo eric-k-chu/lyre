@@ -6,9 +6,10 @@ type Props = {
   setUrl: (url: string) => void
   url: string
   output: string
+  isDownloading: boolean
 }
 
-export function ArgsInput({ url, setUrl, output, setOutput }: Props): ReactElement {
+export function ArgsInput({ url, setUrl, output, setOutput, isDownloading }: Props): ReactElement {
   return (
     <section className='h-8 w-full space-y-4'>
       <div className='flex size-full items-center'>
@@ -19,6 +20,7 @@ export function ArgsInput({ url, setUrl, output, setOutput }: Props): ReactEleme
           URL
         </Label>
         <Input
+          disabled={isDownloading}
           name='url'
           type='url'
           value={url}
@@ -32,6 +34,7 @@ export function ArgsInput({ url, setUrl, output, setOutput }: Props): ReactEleme
           Output
         </Label>
         <button
+          disabled={isDownloading}
           type='button'
           onClick={setOutput}
           className='h-full w-full rounded-r-sm rounded-l-none border border-border bg-transparent px-3 text-left text-muted-foreground text-xs'

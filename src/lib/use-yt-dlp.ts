@@ -10,12 +10,14 @@ type YtDlpState = {
   setOutput: () => Promise<void>
   url: string
   setUrl: (url: string) => void
+  isDownloading: boolean
 }
 
 export function useYtDlp(): YtDlpState {
   const [logs, setLogs] = useState<string[]>([])
   const [url, setUrl] = useState<string>('')
   const { item: output, set } = useLocalStore<string>({ key: 'lyre-output-dir', fallback: '' })
+  const [isDownloading, setIsDownloading] = useState(false)
 
   const setOutput = useCallback(async () => {
     const selected = await open({
@@ -26,6 +28,7 @@ export function useYtDlp(): YtDlpState {
 
   const download = useCallback(
     async (url: string): Promise<void> => {
+      setIsDownloading(true)
       const cmd = Command.create('yt-dlp', [
         url,
         '-P',
@@ -33,16 +36,18 @@ export function useYtDlp(): YtDlpState {
         '-S',
         'res:720',
         '--write-info-json',
-        '--no-write-playlist-meta-files',
+        '--no-write-playlist-metafiles',
         '-o',
-        '"%(channel)s/%(id)s.%(ext)s"',
+        '%(channel)s/%(id)s',
       ])
       setLogs(['Downloading...'])
       cmd.on('close', (data) => {
         setLogs((p) => [...p, `Command closed with code ${data.code}`])
+        setIsDownloading(false)
       })
       cmd.on('error', (data) => {
         setLogs((p) => [...p, `Command errored with message ${data}`])
+        setIsDownloading(false)
       })
       cmd.stdout.on('data', (data) => {
         setLogs((p) => [...p, data])
@@ -59,5 +64,6 @@ export function useYtDlp(): YtDlpState {
     setOutput,
     url,
     setUrl,
+    isDownloading,
   }
 }

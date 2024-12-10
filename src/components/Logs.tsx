@@ -1,5 +1,5 @@
-import { ScrollArea } from '@radix-ui/react-scroll-area'
 import type { ReactElement } from 'react'
+import { ScrollArea } from './ui'
 
 type Props = {
   logs: string[]
@@ -7,7 +7,7 @@ type Props = {
 
 export function Logs({ logs }: Props): ReactElement {
   return (
-    <ScrollArea className='w-full flex-1 rounded-sm border border-border p-4 text-xs'>
+    <ScrollArea id='logs' className='w-full flex-1 rounded-sm border border-border p-4 text-xs'>
       {logs.map((log, index) => (
         <p key={index}>{log}</p>
       ))}
