@@ -7,10 +7,7 @@ type Props = {
 
 export function Logs({ logs }: Props): ReactElement {
   return (
-    <ScrollArea
-      id='logs'
-      className='w-full flex-1 rounded-sm border border-border bg-secondary p-4 text-xs'
-    >
+    <ScrollArea id='logs' className='w-full flex-1 rounded-sm border border-border p-4 text-xs'>
       {logs.map((log, index) => (
         <p key={index}>{log}</p>
       ))}
