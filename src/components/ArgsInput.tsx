@@ -41,7 +41,7 @@ export function ArgsInput({ url, setUrl, output, setOutput, isDownloading }: Pro
         className='size-full justify-start rounded-sm px-2 text-muted-foreground text-xs hover:bg-secondary'
       >
         <span className='text-foreground uppercase'>Output</span>
-        {output || 'Select Output'}
+        <span>{output || 'Select Output'}</span>
       </Button>
     </section>
   )
