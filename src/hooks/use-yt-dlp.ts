@@ -1,5 +1,5 @@
 import { open } from '@tauri-apps/plugin-dialog'
-import { Command } from '@tauri-apps/plugin-shell'
+import { type Child, Command } from '@tauri-apps/plugin-shell'
 import { useCallback, useState } from 'react'
 import { useLocalStore } from './use-local-store'
 
@@ -11,12 +11,14 @@ type YtDlpState = {
   url: string
   setUrl: (url: string) => void
   isDownloading: boolean
+  cancel: () => void
 }
 
 export function useYtDlp(): YtDlpState {
+  const [process, setProcess] = useState<Child>()
   const [logs, setLogs] = useState<string[]>([])
   const [url, setUrl] = useState<string>('')
-  const { item: output, set } = useLocalStore<string>({ key: 'lyre-output-dir', fallback: '' })
+  const [output, set] = useLocalStore<string>({ key: 'lyre-output-dir', fallback: '' })
   const [isDownloading, setIsDownloading] = useState(false)
 
   const setOutput = useCallback(async () => {
@@ -29,7 +31,7 @@ export function useYtDlp(): YtDlpState {
   const download = useCallback(
     async (url: string): Promise<void> => {
       setIsDownloading(true)
-      const cmd = Command.create('yt-dlp', [
+      const command = Command.create('yt-dlp', [
         url,
         '-P',
         output,
@@ -41,21 +43,28 @@ export function useYtDlp(): YtDlpState {
         '%(channel)s/%(id)s',
       ])
       setLogs(['Downloading...'])
-      cmd.on('close', (data) => {
+      command.on('close', (data) => {
         setLogs((p) => [...p, `Command closed with code ${data.code}`])
         setIsDownloading(false)
       })
-      cmd.on('error', (data) => {
+      command.on('error', (data) => {
         setLogs((p) => [...p, `Command errored with message ${data}`])
         setIsDownloading(false)
       })
-      cmd.stdout.on('data', (data) => {
+      command.stdout.on('data', (data) => {
         setLogs((p) => [...p, data])
       })
-      await cmd.spawn()
+      const child = await command.spawn()
+      setProcess(child)
     },
     [output]
   )
+
+  const cancel = useCallback(() => {
+    if (!process) return
+    setLogs((p) => [...p, 'Cancelling...'])
+    process.kill()
+  }, [process])
 
   return {
     logs,
@@ -65,5 +74,6 @@ export function useYtDlp(): YtDlpState {
     url,
     setUrl,
     isDownloading,
+    cancel,
   }
 }

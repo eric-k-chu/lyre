@@ -11,7 +11,7 @@ export function ThemeProvider({
   defaultTheme = 'system',
   storageKey = 'lyre-ui-theme',
 }: ThemeProviderProps): ReactElement {
-  const { item: theme, set } = useLocalStore({ key: storageKey, fallback: defaultTheme })
+  const [theme, set] = useLocalStore({ key: storageKey, fallback: defaultTheme })
 
   useEffect(() => {
     const root = window.document.documentElement

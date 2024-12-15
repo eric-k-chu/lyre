@@ -1,3 +1,4 @@
+import { requireParam } from '@/lib'
 import { createContext, useContext } from 'react'
 
 export type SidebarState = {
@@ -14,8 +15,6 @@ export const SidebarContext = createContext<SidebarState | undefined>(undefined)
 
 export function useSidebar(): SidebarState {
   const context = useContext(SidebarContext)
-  if (!context) {
-    throw new Error('useSidebar must be used within a SidebarProvider')
-  }
+  requireParam(context, 'useSidebar must be used within a SidebarProvider')
   return context
 }

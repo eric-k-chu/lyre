@@ -5,10 +5,7 @@ type LocalStoreInput<T extends string> = {
   fallback: T
 }
 
-type LocalStoreState<T extends string> = {
-  item: T
-  set: (value: T) => void
-}
+type LocalStoreState<T extends string> = [T, (value: T) => void]
 
 export function useLocalStore<T extends string>(input: LocalStoreInput<T>): LocalStoreState<T> {
   const item = useSyncExternalStore(subscribe, () =>
@@ -18,7 +15,7 @@ export function useLocalStore<T extends string>(input: LocalStoreInput<T>): Loca
     localStorage.setItem(input.key, value)
     window.dispatchEvent(new Event('storage'))
   }
-  return { item, set }
+  return [item, set]
 }
 
 function subscribe(cb: VoidFunction): VoidFunction {
