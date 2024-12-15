@@ -6,7 +6,7 @@ import { useYtDlp } from './hooks'
 export function App(): ReactElement {
   const { logs, cancel, download, ...rest } = useYtDlp()
 
-  const submit = (e: FormEvent<HTMLFormElement>) => {
+  const submit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
     download(rest.url)
   }
