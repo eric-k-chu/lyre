@@ -4,14 +4,14 @@ import { useCallback, useState } from 'react'
 import { useLocalStore } from './use-local-store'
 
 type YtDlpState = {
-  logs: string[]
   download: (url: string) => Promise<void>
-  output: string
-  setOutput: () => Promise<void>
+  cancel: () => void
+  isDownloading: boolean
+  logs: string[]
   url: string
   setUrl: (url: string) => void
-  isDownloading: boolean
-  cancel: () => void
+  output: string
+  setOutput: () => Promise<void>
 }
 
 export function useYtDlp(): YtDlpState {
@@ -64,6 +64,7 @@ export function useYtDlp(): YtDlpState {
     if (!process) return
     setLogs((p) => [...p, 'Cancelling...'])
     process.kill()
+    setProcess(undefined)
   }, [process])
 
   return {

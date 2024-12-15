@@ -22,7 +22,7 @@ export function ArgsInput({ url, setUrl, output, setOutput, isDownloading }: Pro
           <span className='text-foreground uppercase'>Url</span>
           <input
             disabled={isDownloading}
-            className='size-full bg-transparent text-muted-foreground focus-within:outline-none'
+            className='size-full bg-transparent text-muted-foreground placeholder:text-muted-foreground focus-within:outline-none'
             autoComplete='off'
             id='url'
             type='url'

@@ -18,7 +18,7 @@ export function useLocalStore<T extends string>(input: LocalStoreInput<T>): Loca
   return [item, set]
 }
 
-function subscribe(cb: VoidFunction): VoidFunction {
+function subscribe(cb: () => void): () => void {
   window.addEventListener('storage', cb)
   return () => {
     window.removeEventListener('storage', cb)
