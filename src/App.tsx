@@ -1,4 +1,4 @@
-import { type FormEvent, type ReactElement, useCallback } from 'react'
+import type { FormEvent, ReactElement } from 'react'
 import { ArgsInput, Logs } from './components'
 import { AppShell } from './components/AppShell'
 import { Button } from './components/ui'
@@ -7,13 +7,10 @@ import { useYtDlp } from './hooks'
 export function App(): ReactElement {
   const { logs, cancel, download, ...rest } = useYtDlp()
 
-  const submit = useCallback(
-    (e: FormEvent<HTMLFormElement>) => {
-      e.preventDefault()
-      download(rest.url)
-    },
-    [rest.url]
-  )
+  const submit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    download(rest.url)
+  }
 
   return (
     <AppShell>
