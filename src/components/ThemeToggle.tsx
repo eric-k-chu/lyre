@@ -22,13 +22,28 @@ export function ThemeToggle(): ReactElement {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end'>
-        <DropdownMenuItem className='text-xs' onClick={() => set('light')}>
+        <DropdownMenuItem
+          className='text-xs'
+          onClick={(): void => {
+            set('light')
+          }}
+        >
           Light
         </DropdownMenuItem>
-        <DropdownMenuItem className='text-xs' onClick={() => set('dark')}>
+        <DropdownMenuItem
+          className='text-xs'
+          onClick={(): void => {
+            set('dark')
+          }}
+        >
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem className='text-xs' onClick={() => set('system')}>
+        <DropdownMenuItem
+          className='text-xs'
+          onClick={(): void => {
+            set('system')
+          }}
+        >
           System
         </DropdownMenuItem>
       </DropdownMenuContent>

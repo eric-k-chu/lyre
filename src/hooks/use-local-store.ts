@@ -20,7 +20,7 @@ export function useLocalStore<T extends string>(input: LocalStoreInput<T>): Loca
 
 function subscribe(cb: () => void): () => void {
   window.addEventListener('storage', cb)
-  return () => {
+  return (): void => {
     window.removeEventListener('storage', cb)
   }
 }

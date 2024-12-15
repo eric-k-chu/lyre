@@ -6,6 +6,8 @@ export function useKeyboard(cb: (key: KeyboardEvent) => void, deps: unknown[]): 
       cb(e)
     }
     window.addEventListener('keydown', listener)
-    return () => window.removeEventListener('keydown', listener)
+    return (): void => {
+      window.removeEventListener('keydown', listener)
+    }
   }, deps)
 }

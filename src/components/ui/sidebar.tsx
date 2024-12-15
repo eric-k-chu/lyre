@@ -130,7 +130,7 @@ export function SidebarTrigger({
       variant='ghost'
       size='icon'
       className={cn('h-7 w-7', className)}
-      onClick={(event) => {
+      onClick={(event): void => {
         onClick?.(event)
         toggleSidebar()
       }}

@@ -13,7 +13,7 @@ export function Logs({ logs }: Props): ReactElement {
       ))}
       <div
         aria-hidden
-        ref={(node) => {
+        ref={(node): void => {
           node?.scrollIntoView({ behavior: 'smooth' })
         }}
       />

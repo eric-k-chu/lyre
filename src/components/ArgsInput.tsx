@@ -27,7 +27,9 @@ export function ArgsInput({ url, setUrl, output, setOutput, isDownloading }: Pro
             id='url'
             type='url'
             value={url}
-            onChange={(e) => setUrl(e.target.value)}
+            onChange={(e): void => {
+              setUrl(e.target.value)
+            }}
             placeholder='https://youtube.com/@Google'
           />
         </div>
