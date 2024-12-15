@@ -19,7 +19,7 @@ export function ArgsInput({ url, setUrl, output, setOutput, isDownloading }: Pro
         className='flex size-full items-center rounded-sm px-2 text-xs hover:bg-secondary'
       >
         <div>
-          <span className='text-primary-foreground uppercase'>Url</span>
+          <span className='text-foreground uppercase'>Url</span>
           <input
             disabled={isDownloading}
             className='size-full bg-transparent text-muted-foreground focus-within:outline-none'
@@ -40,7 +40,7 @@ export function ArgsInput({ url, setUrl, output, setOutput, isDownloading }: Pro
         onClick={setOutput}
         className='size-full justify-start rounded-sm px-2 text-muted-foreground text-xs hover:bg-secondary'
       >
-        <span className='text-primary-foreground uppercase'>Output</span>
+        <span className='text-foreground uppercase'>Output</span>
         {output || 'Select Output'}
       </Button>
     </section>

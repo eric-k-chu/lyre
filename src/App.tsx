@@ -16,7 +16,11 @@ export function App(): ReactElement {
       <form className='flex h-dvh w-screen flex-col gap-4 p-4' onSubmit={submit}>
         <div className='flex h-20 gap-4'>
           <ArgsInput {...rest} />
-          <Button type='submit' className='h-full' disabled={rest.isDownloading}>
+          <Button
+            type='submit'
+            className='h-full bg-gradient-to-b from-primary-2 to-primary'
+            disabled={rest.isDownloading}
+          >
             Download
           </Button>
         </div>
