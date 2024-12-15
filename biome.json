@@ -42,6 +42,9 @@
           "options": {
             "functions": ["clsx", "cva", "tw"]
           }
+        },
+        "useExplicitType": {
+          "level": "warn"
         }
       },
       "a11y": {

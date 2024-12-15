@@ -21,7 +21,7 @@ export function useYtDlp(): YtDlpState {
   const [output, set] = useLocalStore<string>({ key: 'lyre-output-dir', fallback: '' })
   const [isDownloading, setIsDownloading] = useState(false)
 
-  const setOutput = useCallback(async () => {
+  const setOutput = useCallback(async (): Promise<void> => {
     const selected = await open({
       directory: true,
     })
