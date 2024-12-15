@@ -30,7 +30,7 @@ export function App(): ReactElement {
           variant='destructive'
           onClick={cancel}
           className='w-full'
-          disabled={!rest.isDownloading}
+          disabled={rest.isDownloading}
         >
           Cancel
         </Button>
