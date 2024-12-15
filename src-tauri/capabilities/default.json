@@ -10,9 +10,9 @@
       "identifier": "shell:allow-execute",
       "allow": [
         {
-          "name": "yt-dlp",
-          "cmd": "yt-dlp",
-          "args": true
+          "name": "binaries/yt-dlp",
+          "args": true,
+          "sidecar": true
         }
       ]
     },
@@ -20,9 +20,9 @@
       "identifier": "shell:allow-spawn",
       "allow": [
         {
-          "name": "yt-dlp",
-          "cmd": "yt-dlp",
-          "args": true
+          "name": "binaries/yt-dlp",
+          "args": true,
+          "sidecar": true
         }
       ]
     },
@@ -30,9 +30,9 @@
       "identifier": "shell:allow-kill",
       "allow": [
         {
-          "name": "yt-dlp",
-          "cmd": "yt-dlp",
-          "args": true
+          "name": "binaries/yt-dlp",
+          "args": true,
+          "sidecar": true
         }
       ]
     },

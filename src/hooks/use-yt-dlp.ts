@@ -1,3 +1,4 @@
+import { attempt } from '@/lib'
 import { open } from '@tauri-apps/plugin-dialog'
 import { type Child, Command } from '@tauri-apps/plugin-shell'
 import { useCallback, useState } from 'react'
@@ -31,7 +32,7 @@ export function useYtDlp(): YtDlpState {
   const download = useCallback(
     async (url: string): Promise<void> => {
       setIsDownloading(true)
-      const command = Command.create('yt-dlp', [
+      const command = Command.sidecar('binaries/yt-dlp', [
         url,
         '-P',
         output,
@@ -54,8 +55,13 @@ export function useYtDlp(): YtDlpState {
       command.stdout.on('data', (data) => {
         setLogs((p) => [...p, data])
       })
-      const child = await command.spawn()
-      setProcess(child)
+      const [process, error] = await attempt(() => command.spawn())
+      if (error) {
+        setLogs((p) => [...p, `Command errored when spawning: ${error}`])
+        setIsDownloading(false)
+      } else {
+        setProcess(process)
+      }
     },
     [output]
   )
