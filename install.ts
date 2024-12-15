@@ -21,12 +21,6 @@ async function install(platform: Platform): Promise<void> {
 
     const filename = getFilename(platform)
 
-    // does not account for versioning
-    if (existsSync(`src-tauri/binaries/${filename}`)) {
-      console.log(`yt-dlp for ${platform} already downloaded.`)
-      return
-    }
-
     const response = await fetch(getUrl(platform))
     if (!response.ok || !response.body) {
       throw new Error(`Failed to download yt-dlp for ${platform}`)
