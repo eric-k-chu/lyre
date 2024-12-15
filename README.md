@@ -1,3 +1,4 @@
 # lyre
 
-- [ ] Output directory
+- [ ] install script to download latest binaries
+
