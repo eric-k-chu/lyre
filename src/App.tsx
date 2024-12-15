@@ -1,6 +1,5 @@
 import type { FormEvent, ReactElement } from 'react'
-import { ArgsInput, Logs } from './components'
-import { AppShell } from './components/AppShell'
+import { AppShell, ArgsInput, Logs } from './components'
 import { Button } from './components/ui'
 import { useYtDlp } from './hooks'
 
