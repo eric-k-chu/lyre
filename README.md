@@ -1,4 +1,4 @@
 # lyre
 
-- [ ] install script to download latest binaries
+- [x] install script to download latest binaries
 
