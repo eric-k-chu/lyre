@@ -41,7 +41,7 @@ export function useYtDlp(): YtDlpState {
         '--write-info-json',
         '--no-write-playlist-metafiles',
         '-o',
-        '%(channel)s/%(id)s',
+        '%(channel)s/%(id)s.%(ext)s',
       ])
       setLogs(['Downloading...'])
       command.on('close', (data) => {
