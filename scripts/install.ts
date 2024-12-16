@@ -29,7 +29,7 @@ async function install(platform: Platform): Promise<void> {
     const fs = createWriteStream(`src-tauri/binaries/${filename}`, { mode: 0o755 })
 
     await pipeline(response.body, fs)
-    console.log(`yt-dlp for ${platform} downloaded successfully'`)
+    console.log(`yt-dlp for ${platform} downloaded successfully`)
   } catch (e) {
     console.error(e)
   }
